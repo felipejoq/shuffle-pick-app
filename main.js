@@ -32,8 +32,8 @@ playerList.addEventListener('click', (event) => {
     }
 });
 
-getRandomPlayerBtn.addEventListener('click', () => {
-    getRandomPlayer();
+getRandomPlayerBtn.addEventListener('click', async () => {
+    await getRandomPlayer();
 });
 
 resetGameBtn.addEventListener('click', () => {
@@ -84,7 +84,6 @@ const getText = (input) => {
 }
 
 const removePlayer = (id) => {
-    console.log('Eliminar player con id:', id)
     const players = getPlayers();
     const index = players.findIndex(player => player.id === id);
     players.splice(index, 1);
@@ -194,7 +193,6 @@ const setResults = (randomPlayer, players) => {
 
     setPlayers(newPlayers);
 
-    console.log(liSelected);
     liSelected.classList.add('highlighted');
     selectedPlayer.style.display = 'block';
     lastResult.style.display = 'block';
