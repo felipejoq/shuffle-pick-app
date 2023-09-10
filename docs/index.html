@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Tómbola de la suerte</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <script type="module" crossorigin src="/tombola-de-la-suerte/assets/index-d1fde0be.js"></script>
+  <link rel="stylesheet" href="/tombola-de-la-suerte/assets/index-57a8f5ba.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <h1><i class="fa-solid fa-clover"></i> Tómbola de la suerte!</h1>
+    <p>Ingrese la lista de participantes a continuación uno por línea o separados por coma.</p>
+
+    <details id="detailsAddPlayers" open>
+        <summary>
+            Agregar Participantes
+        </summary>
+        <form class="players-form" id="playersForm">
+
+            <label for="players">Lista de participantes:</label>
+            <textarea name="players" id="players" cols="100%" rows="10"
+                      placeholder="Ingrese la lista de participantes..."></textarea>
+            <button class="btn" type="submit" id="addPlayersButton"><i class="fa-solid fa-square-plus"></i> Generar Lista</button>
+        </form>
+    </details>
+
+
+    <section class="players-list">
+        <div id="selectedPlayer"></div>
+        <h2>Jugadores <span id="playersCount"></span>:</h2>
+        <div id="playerList"></div>
+        <div id="lastResult">
+
+        </div>
+    </section>
+
+    <section class="controls">
+        <button class="btn" id="getRandomPlayer"><i class="fa-solid fa-dice"></i> Obtener un Jugador al Azar</button>
+        <button class="btn" id="resetGame"><i class="fa-solid fa-broom"></i> Resetear el juego</button>
+        <button class="btn" id="deletePlayerList"><i class="fa-solid fa-eraser"></i> Borrar lista de jugadores</button>
+    </section>
+
+    <footer>
+        <p>Felipe Jofré - <a href="">Repository</a></p>
+    </footer>
+</div>
+
+
+</body>
+</html>
