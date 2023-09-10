@@ -32,7 +32,7 @@ playersForm.addEventListener('submit', (event) => {
 });
 
 playerList.addEventListener('click', (event) => {
-    if (event.target.type === 'button' || event.target.closest('button').type === 'button') {
+    if (event.target.tagName === 'BUTTON') {
         removePlayer(event.target.closest('li').id);
     }
 });
