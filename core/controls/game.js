@@ -17,5 +17,5 @@ export const resetGame = () => {
 export const removePlayers = () => {
     setPlayers([]);
     detailsAddPlayers.open = true;
-    renderPlayerList(playerList);
+    renderPlayerList(playerList, []);
 }

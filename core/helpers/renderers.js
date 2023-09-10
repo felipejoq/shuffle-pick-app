@@ -1,7 +1,7 @@
 import {detailsAddPlayers, lastResult, playersCount, selectedPlayer} from "../htmlElements.js";
 import {getPlayers, setPlayers} from "../services/player.js";
 
-export const renderPlayerList = (element, players) => {
+export const renderPlayerList = (element, players = []) => {
     element.innerHTML = '';
 
     if (players.length > 0) detailsAddPlayers.open = false;
