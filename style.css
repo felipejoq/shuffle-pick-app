@@ -14,7 +14,7 @@ body {
 }
 
 p {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .wrapper {
@@ -40,17 +40,17 @@ p {
 
 
 li.highlighted {
-    background-color: yellow!important;
-    color: #000!important;
+    background-color: #F2C94C !important; /* Amarillo sobrio */
+    color: #1E293B !important; /* Gris oscuro para el texto */
 }
 
 li.has-been-selected {
-    background-color: limegreen;
+    background-color: #4CAF50; /* Verde sobrio */
     color: white;
 }
 
 li.has-been-selected > button {
-    color: white!important;
+    color: white !important;
 }
 
 /*
@@ -64,7 +64,7 @@ li.has-been-selected > button {
     transition: background-color 0.3s ease;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .btn:hover {
@@ -99,7 +99,7 @@ details {
     flex-direction: column;
     align-items: center;
     max-width: 100%;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 /* Estilos para el <summary> dentro de <details> */
@@ -137,7 +137,7 @@ details textarea {
     border-radius: 5px;
     resize: vertical;
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 details button:hover {
@@ -162,7 +162,7 @@ details button:hover {
 }
 
 #playerList ol li {
-    font-size: 20px;
+    font-size: 18px;
     padding: 0 0 0 10px;
     margin: 0 0 5px;
     display: flex;
@@ -188,7 +188,7 @@ details button:hover {
 }
 
 #selectedPlayer {
-    font-size: 20px;
+    font-size: 18px;
     padding: 10px 20px;
     background-color: #c3c3c3;
     display: none;
@@ -196,7 +196,7 @@ details button:hover {
 }
 
 #lastResult{
-    font-size: 20px;
+    font-size: 18px;
     padding: 10px 20px;
     color: #7b7b7b;
     background-color: #c3c3c3;
@@ -209,7 +209,7 @@ footer{
 }
 footer p {
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     padding: 10px;
     border-radius: 5px;
     background-color: #f4f4f4;
