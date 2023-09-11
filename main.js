@@ -20,6 +20,7 @@ playersForm.addEventListener('submit', (event) => {
     for (const element of event.target.children) {
         if (element.id === 'players') {
             const text = getText(element);
+            if (!text) return;
 
             convertToArray(text);
 

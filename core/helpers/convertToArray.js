@@ -1,6 +1,8 @@
 import {getPlayers, setPlayers} from "../services/player.js";
+import {alerts} from "./alerts.js";
 
 export const convertToArray = (text) => {
+    if (!text) return;
     let lines = text.split(/\s*,|\n/);
     lines = lines.filter(line => line.trim());
     lines = lines.map(line => {
@@ -24,11 +26,17 @@ export const convertToArray = (text) => {
 
 export const getText = (input) => {
     const content = input.value;
-    const regex = /<[^>]+>/;
+    const regex = /^[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ0-9, \n\r]+$/;
     if (regex.test(content)) {
-        throw new Error('El contenido debe ser solo texto separado por comas o saltos de línea');
+        return content;
     }
-    return content;
+
+    alerts.info(
+        'Requisitos',
+        'Ingrese un participante por línea o separado por comas. No se permiten signos especiales, solo letras con o sin tíldes, números. Solo texto.'
+    ).then(result => {
+        return undefined;
+    });
 }
 
 const getRandomId = (length = 6) => {
