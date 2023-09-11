@@ -1,10 +1,11 @@
 import {renderPlayerList, setResults} from "../helpers/renderers.js";
 import {playerList} from "../htmlElements.js";
 import {getPlayers} from "../services/player.js";
+import {alerts} from "../helpers/alerts.js";
 
 const HIGHLIGHT_DURATION = 2000;
 
-const selectRandomPlayer = (players) => {
+const selectRandomPlayer = async (players) => {
     let playerIs;
     do {
         playerIs = players[Math.floor(Math.random() * players.length)];
@@ -23,7 +24,7 @@ export const getRandomPlayer = async () => {
     renderPlayerList(playerList, players);
 
     if (!hasEveryoneParticipated(players)) {
-        alert('Todos los jugadores ya han participado al menos una vez.');
+        await alerts.info('Información', 'Todos los jugadores ya han participado al menos una vez. Presione resetear para volver a comenzar.');
         return;
     }
 
@@ -32,7 +33,6 @@ export const getRandomPlayer = async () => {
     items.forEach(item => {
         item.classList.remove('highlighted');
     });
-
 
     const endTime = Date.now() + HIGHLIGHT_DURATION;
 
@@ -56,7 +56,7 @@ export const getRandomPlayer = async () => {
 
     await new Promise(resolve => setTimeout(resolve, HIGHLIGHT_DURATION + 200));
 
-    const randomPlayer = selectRandomPlayer(players);
+    const randomPlayer = await selectRandomPlayer(players);
     setResults(randomPlayer, players);
 
 }

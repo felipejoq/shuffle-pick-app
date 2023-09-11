@@ -40,12 +40,12 @@ p {
 
 
 li.highlighted {
-    background-color: #F2C94C !important; /* Amarillo sobrio */
-    color: #1E293B !important; /* Gris oscuro para el texto */
+    background-color: #F2C94C !important;
+    color: #1E293B !important;
 }
 
 li.has-been-selected {
-    background-color: #4CAF50; /* Verde sobrio */
+    background-color: #4CAF50;
     color: white;
 }
 
@@ -222,4 +222,8 @@ footer p {
     padding: 10px;
     border-radius: 5px;
     background-color: #f4f4f4;
+}
+
+.swal2-icon {
+    font-size: 10px;
 }
