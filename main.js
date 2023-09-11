@@ -38,7 +38,9 @@ playerList.addEventListener('click', (event) => {
 });
 
 getRandomPlayerBtn.addEventListener('click', async () => {
+    getRandomPlayerBtn.disabled = true;
     await getRandomPlayer();
+    getRandomPlayerBtn.disabled = false;
 });
 
 resetGameBtn.addEventListener('click', () => {
