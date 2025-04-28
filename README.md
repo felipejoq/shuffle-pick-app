@@ -1,53 +1,47 @@
-# 🎲 Tómbola de la Suerte
+# Astro Starter Kit: Minimal
 
-Este es un proyecto simple de "Tómbola de la Suerte" creado con JavaScript y Vite, que te permite ingresar una lista de participantes y obtener uno al azar.
-
-👉 [Demo Online](https://felipejoq.github.io/tombola-de-la-suerte/) 👈
-
-## 📸 Vista previa
-![Vista previa](https://github.com/felipejoq/tombola-de-la-suerte/blob/main/preview.png?raw=true)
-
-
-## 📝 Requisitos previos
-
-Asegúrate de tener instalado Node.js en tu sistema. Puedes descargarlo desde [https://nodejs.org/](https://nodejs.org/).
-
-## ⚙️ Ambiente de desarrollo
-
-Para comenzar, clona este repositorio en tu máquina local utilizando el siguiente comando de Git:
-
-```bash
-git clone https://github.com/felipejoq/tombola-de-la-suerte.git
-
-# Luego, navega al directorio del proyecto:
-cd tombola-de-la-suerte
-
-# Instalación de Dependencias
-# Antes de ejecutar la aplicación, instala las dependencias del proyecto usando npm o yarn:
-npm install
-# o
-yarn install
-
-# Ejecutar en Modo de Desarrollo
-# Puedes ejecutar la aplicación en modo de desarrollo con el siguiente comando:
-npm run dev
-# o
-yarn dev
+```sh
+npm create astro@latest -- --template minimal
 ```
 
-Esto iniciará un servidor de desarrollo y abrirá la aplicación en tu navegador predeterminado. La aplicación se recargará automáticamente cuando realices cambios en el código fuente.
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
 
-## 🚀 Construir el Proyecto
-Para construir el proyecto para su despliegue en producción, utiliza el siguiente comando:
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-```bash
-npm run build
-# o
-yarn build
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
 ```
 
-Esto generará una carpeta dist en el directorio del proyecto con los archivos optimizados listos para ser desplegados en un servidor web.
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-¡Listo! Ahora tienes una "Tómbola de la Suerte" completamente funcional que puedes usar para elegir al azar a un participante de tu lista.
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-Siéntete libre de personalizar y mejorar este proyecto según tus necesidades. ¡Diviértete! 😄
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

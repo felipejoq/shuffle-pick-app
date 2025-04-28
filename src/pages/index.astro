@@ -1,0 +1,35 @@
+---
+import MainLayouts from "../layouts/MainLayouts.astro";
+import "../styles/global.css";
+---
+
+<MainLayouts>
+	<article
+		class="card max-w-2xl mx-auto pb-6 border-1 border-gray-300 rounded-lg shadow-md bg-white overflow-hidden"
+	>
+		<div class="card-header py-8 px-5 bg-purple-300 rounded-t text-white bg-gradient-to-r from-[#9134ea] to-[#3c80f5]">
+			<h1 class="text-4xl">Tómbola de la suerte</h1>
+		</div>
+		<div class="card-body px-8 py-8">
+			<form class="flex flex-col gap-4 text-xl">
+				<div class="flex flex-col gap-2">
+					<label for="list-names">
+						Ingrese la lista de participantes a continuación uno por línea o separados por coma.
+					</label>
+					<textarea
+						class="min-h-[100px] w-full border-1 border-gray-100 shadow px-5 py-5 rounded-2xl"
+						rows="7"
+						cols="50"
+						placeholder="Ej: Juan, María, Pedro"
+						id="list-names"></textarea>
+				</div>
+				<button
+					class="px-3 py-5 bg-[#7857ff] text-white font-bold w-full rounded-2xl"
+				>
+					Agregar participantes
+				</button>
+			</form>
+		</div>
+		<div class="card-footer"></div>
+	</article>
+</MainLayouts>

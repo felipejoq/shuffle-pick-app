@@ -1,0 +1,32 @@
+---
+import Footer from '../shared/footer.astro';
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const {
+    title = "Tómbola de la suerte",
+    description = "La tómbola de la suerte elige al azar un nombre de una lista que tu puedes ingresar.",
+} = Astro.props;
+---
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+
+        <meta name="viewport" content="width=device-width" />
+        <title>{title}</title>
+    </head>
+    <body class="flex flex-col item-center justify-center min-h-dvh bg-gray-100  min-w-sm">
+        <main class="my-4">
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>
