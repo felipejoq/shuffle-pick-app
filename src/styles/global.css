@@ -1,14 +1,19 @@
 @import "tailwindcss";
 
+@theme {
+    --color-primary: #7857ff;
+    --color-secondary: #3c80f5;
+}
+
 @layer base {
     button {
         @apply cursor-pointer px-2 py-4;
     }
     .button-primary {
-        @apply  bg-[#7857ff] text-white w-full rounded-xl
+        @apply  bg-primary text-white w-full rounded-xl
     }
     .button-secondary {
-        @apply w-full rounded-xl bg-[#3c80f5] text-white;
+        @apply w-full rounded-xl bg-secondary text-white;
     }
     .button-mutted {
         @apply border-1 border-gray-300 w-full rounded-2xl;

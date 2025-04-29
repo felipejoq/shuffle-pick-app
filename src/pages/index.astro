@@ -1,4 +1,7 @@
 ---
+import { CountPlayers } from "../componets/CountPlayers";
+import { PlayersList } from "../componets/PlayersList";
+import { FormInputPlayers } from "../componets/FormInputPlayers";
 import MainLayouts from "../layouts/MainLayouts.astro";
 import "../styles/global.css";
 ---
@@ -8,53 +11,27 @@ import "../styles/global.css";
 		class="card max-w-2xl mx-auto pb-6 border-1 border-gray-300 rounded-lg shadow-md bg-white overflow-hidden"
 	>
 		<div
-			class="card-header py-7 px-5 bg-purple-300 rounded-t text-white bg-gradient-to-r from-[#9134ea] to-[#3c80f5]"
+			class="card-header py-7 px-5 bg-purple-300 rounded-t text-white bg-gradient-to-r from-primary to-secondary"
 		>
 			<h1 class="text-4xl">Tómbola de la suerte</h1>
 		</div>
-		<div class="card-body px-8 py-8">
-			<form class="flex flex-col gap-4 text-xl">
-				<div class="flex flex-col gap-2">
-					<label for="list-names">
-						Ingrese la lista de participantes a continuación uno por
-						línea o separados por coma.
-					</label>
-					<textarea
-						class="min-h-[100px] w-full border-1 border-gray-100 shadow px-5 py-5 rounded-xl"
-						rows="3"
-						cols="50"
-						placeholder="Ej: Juan, María, Pedro"
-						id="list-names"></textarea>
-				</div>
-				<button
-					class="button-primary"
-				>
-					Agregar participantes
-				</button>
-			</form>
-			<div class="my-4 text-xl">
-				<h2 class="font-bold">Jugadores (0):</h2>
-				<div>
-					No hay jugadores para sortear <!-- Jugadores listos / Jugador sorteado -->
-				</div>
+		<div class="card-body px-8 py-8 flex flex-col gap-4">
+			<FormInputPlayers client:load />
+			<div class="flex flex-col gap-2 text-xl">
+				<h2 class="font-bold mb-3">
+					Jugadores (<CountPlayers client:load />):
+				</h2>
+				<PlayersList client:load />
 			</div>
 			<div class="text-xl my-4">
-				<button
-					class="button-secondary"
-				>
+				<button class="button-secondary">
 					Obtener un jugador al azar
 				</button>
 				<div
 					class="flex flex-row justify-between items-center gap-5 my-4"
 				>
-					<button
-						class="button-mutted"
-					>
-						Resetear el juego
-					</button>
-					<button
-						class="button-mutted text-red-600"
-					>
+					<button class="button-mutted"> Resetear el juego </button>
+					<button class="button-mutted text-red-600">
 						Borrar la lista
 					</button>
 				</div>
