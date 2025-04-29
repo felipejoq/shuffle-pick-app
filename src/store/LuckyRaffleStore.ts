@@ -13,7 +13,7 @@ export const players = persistentMap<Record<string, Player>>('playersList', {}, 
 });
 
 // Actions
-export function addPlayer(name: string, id?: string): void {
+export const addPlayer = (name: string, id?: string): void => {
     if (id) {
         const existPlayer = players.get()[id];
         players.setKey(id, {
