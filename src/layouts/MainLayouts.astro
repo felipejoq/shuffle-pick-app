@@ -1,0 +1,33 @@
+---
+import Footer from '../components/shared/Footer.astro';
+
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const {
+    title = "ShufflePick - Free App",
+    description = "La tómbola de la suerte elige al azar un nombre de una lista que tu puedes ingresar.",
+} = Astro.props;
+---
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/webp" href="/favicon.webp" />
+
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+
+        <meta name="viewport" content="width=device-width" />
+        <title>{title}</title>
+    </head>
+    <body class="flex flex-col item-center min-h-dvh bg-gray-100  min-w-sm">
+        <main class="my-4">
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>
