@@ -13,9 +13,9 @@
         @apply  bg-primary text-white w-full rounded-xl
     }
     .button-secondary {
-        @apply w-full rounded-xl bg-secondary text-white;
+        @apply w-full rounded-xl bg-secondary text-white disabled:bg-gray-300 disabled:text-gray-700 disabled:cursor-not-allowed;
     }
     .button-mutted {
-        @apply border-1 border-gray-300 w-full rounded-2xl;
+        @apply border-1 border-gray-300 w-full rounded-2xl disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed;
     }
 }

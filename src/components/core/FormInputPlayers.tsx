@@ -1,6 +1,7 @@
 import { ListPlus } from "lucide-react";
 import { addPlayer } from "../../store/LuckyRaffleStore"
 import { useState, type FormEvent } from "react";
+import { Toaster, toast } from "sonner";
 
 export const FormInputPlayers = () => {
 
@@ -8,7 +9,10 @@ export const FormInputPlayers = () => {
 
     const handlePlayers = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        if(!rawPlayers.trim()) return;
+        if (!rawPlayers.trim()) {
+            toast.info('No ha ingresado participantes', { position: "top-center" })
+            return;
+        }
 
         const newPlayers = rawPlayers
             .split(/[,\n]/)
@@ -19,15 +23,13 @@ export const FormInputPlayers = () => {
         newPlayers.forEach(newPlayer => addPlayer(newPlayer));
 
         setRawPlayers('');
+
     }
 
     return (
         <form onSubmit={handlePlayers} className="flex flex-col gap-4 text-xl">
             <div className="flex flex-col gap-2">
-                <label className="text-lg" htmlFor="list-names">
-                    Ingrese la lista de participantes a continuación uno por
-                    línea o separados por coma.
-                </label>
+                <label className="text-lg" htmlFor="list-names">Enter the list of participants below, one per line or comma-separated.</label>
                 <textarea
                     onChange={(event) => setRawPlayers(event.target.value)}
                     value={rawPlayers}
@@ -41,8 +43,9 @@ export const FormInputPlayers = () => {
                 className="button-primary"
             >
                 <ListPlus size={24} />
-                Agregar participantes
+                Add players
             </button>
+            <Toaster />
         </form>
     )
 }
