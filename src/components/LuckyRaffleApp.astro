@@ -3,16 +3,17 @@ import { CountPlayers } from "./core/CountPlayers";
 import { FormInputPlayers } from "./core/FormInputPlayers";
 import { PlayersList } from "./core/PlayersList";
 import { ActionButtons } from "./core/ActionButtons";
+import { LastPlayerPicked } from "./core/LastPlayerPicked";
 import { Toaster } from "sonner";
 ---
 
 <div class="card-body px-8 py-8 flex flex-col gap-4">
 	<FormInputPlayers client:load />
-	<div class="flex flex-col gap-2 text-xl">
-		<h2 class="font-bold mb-3">
+	<div class="flex flex-col gap-4 text-xl">
+		<h2 class="font-bold my-3 flex items-center gap-2">
 			Players (<CountPlayers client:only="react"
 				><span slot="fallback">?</span></CountPlayers
-			>):
+			>) <LastPlayerPicked client:only="react"><span slot="fallback">...</span></LastPlayerPicked>
 		</h2>
 		<PlayersList client:only="react">
 			<span slot="fallback">Loading...</span>

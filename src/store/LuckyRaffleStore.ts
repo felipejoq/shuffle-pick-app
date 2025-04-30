@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid'
-import { persistentMap } from '@nanostores/persistent'
-import { atom, map } from 'nanostores';
+import { persistentAtom, persistentMap } from '@nanostores/persistent'
+import { atom } from 'nanostores';
 
 export type Player = {
     id: string;
@@ -13,6 +13,11 @@ export enum APP_STATE {
     PLAYING = "Playing",
     RESULT = "Result"
 }
+
+export const lastPlayerPicked = persistentAtom<Player| null>('last-picked', null, {
+    encode: JSON.stringify,
+    decode: JSON.parse
+});
 
 export const players = persistentMap<Record<string, Player>>('player', {}, {
     encode: JSON.stringify,
@@ -51,6 +56,9 @@ export const editPlayer = (id: string, name: string): void => {
 export const deletePlayer = (id: string): void => {
     const currentPlayers = Object.assign({}, players.get());
     delete currentPlayers[id];
+    if(id === lastPlayerPicked.get()?.id) {
+        lastPlayerPicked.set(null)
+    }
     players.set(currentPlayers);
 }
 
@@ -63,6 +71,39 @@ export const togglePlayerSelected = (id: string): void => {
     });
 }
 
-export const resetPlayerList = ():void => {
+export const resetPlayerList = (): void => {
     players.set({});
+    lastPlayerPicked.set(null)
+}
+
+export const setLastPlayerSelected = (player: Player) => {
+    lastPlayerPicked.set(player)
+}
+
+export const getRandomPlayer = (): Player | null => {
+    const idPlayers = Object.keys(players.get());
+
+    const idFiltered = idPlayers.filter(id => !players.get()[id].selected);
+
+    if (!idFiltered.length) return null;
+
+    const playerSelected = idFiltered[Math.floor(Math.random() * idFiltered.length)];
+
+    const playerPicked = players.get()[playerSelected];
+
+    togglePlayerSelected(playerSelected);
+    setLastPlayerSelected(playerPicked);
+
+    return playerPicked;
+}
+
+export const startOverList = () => {
+    Object.keys(players.get()).map(id => {
+        const player = players.get()[id];
+        const playerReset = {
+            ...player,
+            selected: false,
+        }
+        players.setKey(id, playerReset)
+    });
 }
