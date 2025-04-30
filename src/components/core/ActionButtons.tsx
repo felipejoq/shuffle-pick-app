@@ -1,38 +1,17 @@
-import { useStore } from "@nanostores/react"
-import { ListRestart, Shuffle, Trash2 } from "lucide-react"
-import { getRandomPlayer, players, resetPlayerList, startOverList, togglePlayerSelected } from "../../store/LuckyRaffleStore"
-import { useEffect, useState } from "react";
+import { ListRestart, Shuffle, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { CustomToast } from "../shared/CustomToast"
+import { usePickActions } from "../../hooks/usePickActions";
 
 export const ActionButtons = () => {
 
-	const $players = useStore(players);
-	const [hasPlayers, setHasPlayers] = useState(Boolean(!Object.keys($players).length));
 
-	useEffect(() => {
-		setHasPlayers(Boolean(!Object.keys($players).length));
-	}, [$players]);
-
-	const handleDrawOne = () => {
-		const result = getRandomPlayer();
-		if (!result) toast.success('All players have been picked. Reset the game!');
-	}
-
-	const handleStartOver = () => {
-		startOverList();
-	}
-
-	const handleClearList = () => {
-		const reset = () => {
-			resetPlayerList()
-			toast.info('The list was reset');
-		}
-
-		toast.custom((t) => (
-			<CustomToast message={"Clear Player List?"} t={t} callback={reset} />
-		), { duration: Infinity });
-	}
+	const {
+		hasPlayers,
+		handleDrawOne,
+		handleStartOver,
+		handleClearList,
+	} = usePickActions();
 
 	return (
 		<>
@@ -59,7 +38,11 @@ export const ActionButtons = () => {
 					<button
 						disabled={hasPlayers}
 						className={`button-mutted ${hasPlayers ? 'text-red-300' : ' text-red-600'}`}
-						onClick={handleClearList}
+						onClick={() => {
+							toast.custom((t) => (
+								<CustomToast message={"Clear Player List?"} t={t} callback={handleClearList} />
+							), { duration: Infinity });
+						}}
 					>
 						<Trash2 size={24} />
 						Clear list
