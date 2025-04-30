@@ -1,6 +1,6 @@
 import React from "react";
-import { useInputEditable } from "../hooks/useInputEditable";
-import type { Player } from "../store/LuckyRaffleStore";
+import { useInputEditable } from "../../hooks/useInputEditable";
+import type { Player } from "../../store/LuckyRaffleStore";
 import {CircleUser, Delete} from 'lucide-react';
 
 interface Props {

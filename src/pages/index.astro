@@ -1,9 +1,7 @@
 ---
-import { CountPlayers } from "../components/CountPlayers";
-import { PlayersList } from "../components/PlayersList";
-import { FormInputPlayers } from "../components/FormInputPlayers";
+import LuckyRaffleApp from "../components/LuckyRaffleApp.astro";
 import MainLayouts from "../layouts/MainLayouts.astro";
-import { Dices, ListRestart, Shuffle, Trash2 } from 'lucide-react';
+import { Dices } from 'lucide-react';
 import "../styles/global.css";
 ---
 
@@ -19,35 +17,7 @@ import "../styles/global.css";
 				Tómbola de la suerte
 			</h1>
 		</div>
-		<div class="card-body px-8 py-8 flex flex-col gap-4">
-			<FormInputPlayers client:load />
-			<div class="flex flex-col gap-2 text-xl">
-				<h2 class="font-bold mb-3">
-					Jugadores (<CountPlayers client:only="react"><span slot="fallback">?</span></CountPlayers>):
-				</h2>
-				<PlayersList client:only="react">
-					<span slot="fallback">Cargando datos...</span>
-				</PlayersList>
-			</div>
-			<div class="text-xl my-4">
-				<button class="button-secondary">
-					<Shuffle size={24} />
-					Obtener un jugador al azar
-				</button>
-				<div
-					class="flex flex-row justify-between items-center gap-5 my-4"
-				>
-					<button class="button-mutted">
-						<ListRestart size={24} />
-						Resetear el juego
-					</button>
-					<button class="button-mutted text-red-600">
-						<Trash2 size={24} />
-						Borrar la lista
-					</button>
-				</div>
-			</div>
-		</div>
+		<LuckyRaffleApp />
 		<div class="card-footer"></div>
 	</article>
 </MainLayouts>
