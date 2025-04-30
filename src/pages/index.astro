@@ -3,6 +3,7 @@ import { CountPlayers } from "../components/CountPlayers";
 import { PlayersList } from "../components/PlayersList";
 import { FormInputPlayers } from "../components/FormInputPlayers";
 import MainLayouts from "../layouts/MainLayouts.astro";
+import { Dices, ListRestart, Shuffle, Trash2 } from 'lucide-react';
 import "../styles/global.css";
 ---
 
@@ -13,7 +14,10 @@ import "../styles/global.css";
 		<div
 			class="card-header py-7 px-5 bg-purple-300 rounded-t text-white bg-gradient-to-r from-primary to-secondary"
 		>
-			<h1 class="text-4xl">Tómbola de la suerte</h1>
+			<h1 class="text-4xl flex flex-row items-center gap-2">
+				<Dices size={32} />
+				Tómbola de la suerte
+			</h1>
 		</div>
 		<div class="card-body px-8 py-8 flex flex-col gap-4">
 			<FormInputPlayers client:load />
@@ -27,13 +31,18 @@ import "../styles/global.css";
 			</div>
 			<div class="text-xl my-4">
 				<button class="button-secondary">
+					<Shuffle size={24} />
 					Obtener un jugador al azar
 				</button>
 				<div
 					class="flex flex-row justify-between items-center gap-5 my-4"
 				>
-					<button class="button-mutted"> Resetear el juego </button>
+					<button class="button-mutted">
+						<ListRestart size={24} />
+						Resetear el juego
+					</button>
 					<button class="button-mutted text-red-600">
+						<Trash2 size={24} />
 						Borrar la lista
 					</button>
 				</div>

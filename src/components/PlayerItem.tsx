@@ -1,6 +1,7 @@
 import React from "react";
 import { useInputEditable } from "../hooks/useInputEditable";
 import type { Player } from "../store/LuckyRaffleStore";
+import {Delete} from 'lucide-react';
 
 interface Props {
     player: Player;
@@ -39,8 +40,8 @@ export const PlayerItem: React.FC<Props> = ({ player }) => {
                 }
             </div>
 
-            <button className="bg-red-500 text-white rounded-2xl px-4 py-2" type="button" onClick={handleDeletePlayer}>
-                x
+            <button className="bg-red-400 hover:bg-red-500 text-white rounded-2xl px-4 py-2" type="button" onClick={handleDeletePlayer}>
+                <Delete size={24} />
             </button>
         </div>
     )

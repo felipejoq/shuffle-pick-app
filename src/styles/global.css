@@ -7,7 +7,7 @@
 
 @layer base {
     button {
-        @apply cursor-pointer px-2 py-4;
+        @apply cursor-pointer px-2 py-4 flex flex-row gap-2 justify-center items-center;
     }
     .button-primary {
         @apply  bg-primary text-white w-full rounded-xl
