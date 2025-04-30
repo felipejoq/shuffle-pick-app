@@ -1,6 +1,6 @@
 import { useStore } from "@nanostores/react"
 import { ListRestart, Shuffle, Trash2 } from "lucide-react"
-import { players, resetPlayerList } from "../../store/LuckyRaffleStore"
+import { players, resetPlayerList, togglePlayerSelected } from "../../store/LuckyRaffleStore"
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { CustomToast } from "../shared/CustomToast"
@@ -8,14 +8,20 @@ import { CustomToast } from "../shared/CustomToast"
 export const ActionButtons = () => {
 
 	const $players = useStore(players);
-	const [hasPlayers, setHasPlauers] = useState(Boolean(!Object.keys($players).length));
+	const [hasPlayers, setHasPlayers] = useState(Boolean(!Object.keys($players).length));
 
 	useEffect(() => {
-		setHasPlauers(Boolean(!Object.keys($players).length));
+		setHasPlayers(Boolean(!Object.keys($players).length));
 	}, [$players]);
 
 	const handleDrawOne = () => {
-		console.log('handleDrawOne');
+		const idPlayers = Object.keys($players);
+		const randomIdPlayer = idPlayers[Math.floor(Math.random() * idPlayers.length)];
+
+		togglePlayerSelected($players[randomIdPlayer].id);
+
+		console.log($players[randomIdPlayer]);
+		
 	}
 
 	const handleStartOver = () => {

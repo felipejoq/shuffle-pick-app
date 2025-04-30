@@ -9,7 +9,7 @@ export const PlayersList = () => {
         <div className="flex flex-col gap-2">
             {
                 !Object.keys($players).length
-                    ? 'No hay players en la lista'
+                    ? 'The list has no records...'
                     : (Object.entries($players).map(([key, player]) => (
                         <PlayerItem key={key} player={player} />
                     )))

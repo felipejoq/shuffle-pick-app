@@ -10,7 +10,7 @@ export const FormInputPlayers = () => {
     const handlePlayers = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (!rawPlayers.trim()) {
-            toast.info('No ha ingresado participantes', { position: "top-center" })
+            toast.info('Please enter at least one participant');
             return;
         }
 
