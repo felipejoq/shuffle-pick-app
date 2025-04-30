@@ -13,11 +13,9 @@ export const FormInputPlayers = () => {
             .split(/[,\n]/)
             .map((name) => name.trim())
             .filter((name) => name !== "")
-            .map(name => `${name.charAt(0).toUpperCase()}${name.slice(1)}`)
+            .map(name => `${name.charAt(0).toUpperCase()}${name.slice(1)}`);
 
-        newPlayers.forEach(newPlayer => {
-            addPlayer(newPlayer);
-        });
+        newPlayers.forEach(newPlayer => addPlayer(newPlayer));
 
         setRawPlayers('');
     }
@@ -25,7 +23,7 @@ export const FormInputPlayers = () => {
     return (
         <form onSubmit={handlePlayers} className="flex flex-col gap-4 text-xl">
             <div className="flex flex-col gap-2">
-                <label htmlFor="list-names">
+                <label className="text-lg" htmlFor="list-names">
                     Ingrese la lista de participantes a continuación uno por
                     línea o separados por coma.
                 </label>

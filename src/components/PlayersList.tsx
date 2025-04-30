@@ -11,7 +11,7 @@ export const PlayersList = () => {
                 !Object.keys($players).length
                     ? 'No hay players en la lista'
                     : (Object.entries($players).map(([key, player]) => (
-                        <PlayerItem key={key} name={player.name} />
+                        <PlayerItem key={key} player={player} />
                     )))
             }
         </div>

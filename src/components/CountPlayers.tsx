@@ -6,8 +6,6 @@ export const CountPlayers = () => {
   const $players = useStore(players);
   
   return (
-    <span>
-        {Object.keys($players).length}
-    </span>
+    <span>{Object.keys($players).length}</span>
   )
 }
