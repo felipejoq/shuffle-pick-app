@@ -3,6 +3,7 @@ import { CountPlayers } from "./core/CountPlayers";
 import { FormInputPlayers } from "./core/FormInputPlayers";
 import { PlayersList } from "./core/PlayersList";
 import { ActionButtons } from "./core/ActionButtons";
+import { Toaster } from "sonner";
 ---
 
 <div class="card-body px-8 py-8 flex flex-col gap-4">
@@ -20,4 +21,6 @@ import { ActionButtons } from "./core/ActionButtons";
 	<ActionButtons client:only="react">
 		<span slot="fallback">Loading...</span>
 	</ActionButtons>
+
+	<Toaster position="top-center" client:only="react" />
 </div>

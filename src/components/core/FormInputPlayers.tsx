@@ -45,7 +45,6 @@ export const FormInputPlayers = () => {
                 <ListPlus size={24} />
                 Add players
             </button>
-            <Toaster />
         </form>
     )
 }

@@ -1,5 +1,6 @@
 import { v4 as uuid } from 'uuid'
 import { persistentMap } from '@nanostores/persistent'
+import { atom, map } from 'nanostores';
 
 export type Player = {
     id: string;
@@ -7,10 +8,18 @@ export type Player = {
     selected: boolean;
 }
 
+export enum APP_STATE {
+    IDLE = "Idle",
+    PLAYING = "Playing",
+    RESULT = "Result"
+}
+
 export const players = persistentMap<Record<string, Player>>('player', {}, {
     encode: JSON.stringify,
     decode: JSON.parse
 });
+
+export const app_state = atom<APP_STATE>(APP_STATE.IDLE);
 
 // Actions
 export const addPlayer = (name: string, id?: string): void => {
@@ -52,4 +61,8 @@ export const togglePlayerSelected = (id: string): void => {
         ...player,
         selected: !player.selected
     });
+}
+
+export const resetPlayerList = ():void => {
+    players.set({});
 }
