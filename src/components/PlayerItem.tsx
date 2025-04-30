@@ -1,7 +1,7 @@
 import React from "react";
 import { useInputEditable } from "../hooks/useInputEditable";
 import type { Player } from "../store/LuckyRaffleStore";
-import {Delete} from 'lucide-react';
+import {CircleUser, Delete} from 'lucide-react';
 
 interface Props {
     player: Player;
@@ -23,14 +23,15 @@ export const PlayerItem: React.FC<Props> = ({ player }) => {
     } = useInputEditable({ id, name, editable: false });
 
     return (
-        <div className="flex flex-row justify-between items-center gap-4">
-            <div onDoubleClick={handleDoubleClick} className="w-full bg-primary text-white px-3 py-2 rounded-2xl font-extralight">
+        <div className="flex flex-row justify-between items-center gap-2">
+            <div onDoubleClick={handleDoubleClick} className="w-full bg-gray-500 text-white px-3 py-2 rounded-2xl flex flex-row items-center gap-2">
+            <CircleUser size={24} />
                 {
                     isEditable
                         ? (<input
                             autoFocus={isEditable}
                             onFocus={handleOnFocus}
-                            className="w-full bg-amber-50 text-gray-600"
+                            className="w-full bg-gray-200 text-gray-600"
                             value={nameText}
                             onChange={handleInputChange}
                             onBlur={handleInputBlur}

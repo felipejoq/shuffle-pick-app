@@ -1,3 +1,4 @@
+import { ListPlus } from "lucide-react";
 import { addPlayer } from "../store/LuckyRaffleStore"
 import { useState, type FormEvent } from "react";
 
@@ -39,6 +40,7 @@ export const FormInputPlayers = () => {
             <button
                 className="button-primary"
             >
+                <ListPlus size={24} />
                 Agregar participantes
             </button>
         </form>
