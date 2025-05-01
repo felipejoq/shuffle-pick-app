@@ -87,11 +87,11 @@ export const getRandomPlayer = (): Player | null => {
 
     if (!idFiltered.length) return null;
 
-    const playerSelected = idFiltered[Math.floor(Math.random() * idFiltered.length)];
+    const playerIdSelected = idFiltered[Math.floor(Math.random() * idFiltered.length)];
 
-    const playerPicked = players.get()[playerSelected];
+    const playerPicked = players.get()[playerIdSelected];
 
-    togglePlayerSelected(playerSelected);
+    togglePlayerSelected(playerIdSelected);
     setLastPlayerSelected(playerPicked);
 
     return playerPicked;
