@@ -1,5 +1,5 @@
 import { useState, type ChangeEvent, type FocusEventHandler, type KeyboardEvent } from "react";
-import { deletePlayer, editPlayer } from "../store/LuckyRaffleStore";
+import { deletePlayer, editPlayer } from "../store/ShufflePickStore";
 
 interface InitialSateHook {
     id: string;
