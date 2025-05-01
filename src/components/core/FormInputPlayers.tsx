@@ -1,5 +1,5 @@
 import { ListPlus } from "lucide-react";
-import { addPlayer } from "../../store/LuckyRaffleStore"
+import { addPlayer } from "../../store/ShufflePickStore"
 import { useState, type FormEvent } from "react";
 import { Toaster, toast } from "sonner";
 

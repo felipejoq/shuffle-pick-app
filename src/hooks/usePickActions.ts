@@ -1,5 +1,5 @@
 import { useStore } from "@nanostores/react";
-import { getRandomPlayer, players, resetPlayerList, startOverList } from "../store/LuckyRaffleStore";
+import { getRandomPlayer, players, resetPlayerList, startOverList } from "../store/ShufflePickStore";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 

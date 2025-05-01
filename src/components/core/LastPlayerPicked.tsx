@@ -1,5 +1,5 @@
 import { useStore } from "@nanostores/react"
-import { lastPlayerPicked } from "../../store/LuckyRaffleStore"
+import { lastPlayerPicked } from "../../store/ShufflePickStore"
 import { ArrowBigDown, ArrowBigRight, Crown } from "lucide-react";
 
 

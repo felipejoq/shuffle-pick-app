@@ -1,5 +1,5 @@
 import { useStore } from "@nanostores/react"
-import { players } from "../../store/LuckyRaffleStore"
+import { players } from "../../store/ShufflePickStore"
 
 export const CountPlayers = () => {
 
