@@ -1,24 +1,47 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary: #7857ff;
-    --color-secondary: #3c80f5;
+    /* primary pallet */
+    --color-primary-50: #f4f0ff;
+    --color-primary-100: #e3d9ff;
+    --color-primary-200: #c5b4ff;
+    --color-primary-300: #a88fff;
+    --color-primary-400: #8c6aff;
+    --color-primary-500: #7857ff; /* color base */
+    --color-primary-600: #6548e0;
+    --color-primary-700: #5239b8;
+    --color-primary-800: #3f2b91;
+    --color-primary-900: #2d1f6b;
+    --color-primary-950: #1e144c;
+
+    /* secondary pallet */
+    --color-secondary-50:  #eef5ff;
+    --color-secondary-100: #d6e7ff;
+    --color-secondary-200: #adceff;
+    --color-secondary-300: #85b4ff;
+    --color-secondary-400: #5c9bff;
+    --color-secondary-500: #3c80f5; /* color base */
+    --color-secondary-600: #3169d1;
+    --color-secondary-700: #2753a9;
+    --color-secondary-800: #1d3d80;
+    --color-secondary-900: #142857;
+    --color-secondary-950: #0c1737;
 }
 
 @layer base {
     button {
-        @apply cursor-pointer px-2 py-4 flex flex-row gap-2 justify-center items-center;
+        @apply cursor-pointer px-2 py-4 flex flex-row gap-2 justify-center items-center transition-all;
     }
     .button-primary {
-        @apply  bg-primary text-white w-full rounded-xl
+        @apply  bg-primary-600 text-white w-full rounded-xl hover:bg-primary-500;
     }
     .button-secondary {
-        @apply w-full rounded-xl bg-secondary text-white disabled:bg-gray-300 disabled:text-gray-700 disabled:cursor-not-allowed;
+        @apply w-full rounded-xl bg-secondary-600 hover:bg-secondary-500 text-white disabled:bg-gray-300 disabled:text-gray-700 disabled:cursor-not-allowed;
     }
     .button-mutted {
         @apply border-1 border-gray-300 w-full rounded-2xl disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed;
     }
     .pill-player {
-        @apply w-full px-3 py-2 rounded-2xl flex flex-row items-center gap-2;
+        @apply w-full px-3 py-2 rounded-2xl flex flex-row items-center gap-2 transition-all;
     }
 }

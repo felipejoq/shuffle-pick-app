@@ -24,7 +24,7 @@ export const PlayerItem: React.FC<Props> = ({ player }) => {
 
     return (
         <div className="flex flex-row justify-between items-center gap-2">
-            <div onDoubleClick={handleDoubleClick} className={`pill-player ${player.selected ? "bg-green-200 text-gray-600" : "bg-gray-500 text-white"}`}>
+            <div onDoubleClick={handleDoubleClick} className={`pill-player transition-all ${player.selected ? "bg-green-200 text-gray-600" : "bg-gray-500 text-white"}`}>
             <CircleUser size={24} />
                 {
                     isEditable

@@ -13,11 +13,15 @@ export const ActionButtons = () => {
 		handleClearList,
 	} = usePickActions();
 
+	const handleDrawOneClick = async () => {
+		await handleDrawOne();
+	}
+
 	return (
 		<>
 			<div className="text-xl my-4">
 				<button
-					onClick={handleDrawOne}
+					onClick={handleDrawOneClick}
 					disabled={hasPlayers}
 					className="button-secondary"
 				>
