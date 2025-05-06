@@ -9,13 +9,13 @@ export const LastPlayerPicked = () => {
   const $appState = useStore(app_state);
 
   return (
-    $lastPlayerPicked
+    $lastPlayerPicked || $appState === APP_STATE.PLAYING
       ? (<span className="flex gap-2 items-center text-primary-500">
                 <ArrowBigRight size={24}/>
         {
           $appState === APP_STATE.PLAYING
             ? (<><Loader2Icon size={24} className="animate-spin"/> Sorteando...</>)
-            : (<><Crown size={24}/> {$lastPlayerPicked.name}</>)
+            : (<><Crown size={24}/> {$lastPlayerPicked!.name}</>)
         }
             </span>)
       : "..."
